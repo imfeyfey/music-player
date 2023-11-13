@@ -82,6 +82,15 @@ function loadTrack(track_index) {
   // using the 'ended' event
   curr_track.addEventListener("ended", nextTrack);
 
+  play.addEventListener("click", playTrack);
+  prev.addEventListener("click", prevTrack);
+  next.addEventListener("click", nextTrack);
+  
+
+  let pause;
+  pause.addEventListener("click", pauseTrack);
+
+
   function playTrack() {
     // Switch between playing and pausing
     // depending on the current state
@@ -138,7 +147,7 @@ function loadTrack(track_index) {
       seekTo = curr_track.duration * (seek_slider.value / 100);
       
       // Set the current track position to the calculated seek position
-      curr_track.currentTime = seekTo;
+      curr_track.current_time = seekTo;
       }
       
       
@@ -147,12 +156,12 @@ function loadTrack(track_index) {
       
       // Check if the current track duration is a legible number
       if (!isNaN(curr_track.duration)) {
-        seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+        seekPosition = curr_track.current_time * (100 / curr_track.duration);
         seek_slider.value = seekPosition;
       
         // Calculate the time left and the total duration
-        let currentMinutes = Math.floor(curr_track.currentTime / 60);
-        let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+        let currentMinutes = Math.floor(curr_track.current_time / 60);
+        let currentSeconds = Math.floor(curr_track.current_time - currentMinutes * 60);
         let durationMinutes = Math.floor(curr_track.duration / 60);
         let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
       
@@ -169,4 +178,11 @@ function loadTrack(track_index) {
       }
 // Load the first track in the tracklist
 loadTrack(track_index);
+
+function resetValues() {
+  current_time.textContent = "00:00";
+  total_duration.textContent = "00:00";
+  seek_slider.value = 0;
+ }
+ 
       
