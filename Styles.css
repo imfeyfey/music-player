@@ -9,7 +9,7 @@ body {
   padding: 0;
 }
 
-.music-player {
+.music_player {
   padding-top: 104px;
 }
 
@@ -23,18 +23,20 @@ body {
  border-radius: 32px;
 }
 
-.album {
+.track_art {
   position: relative;
 
 }
 
-img.album-artist {
-  width:258.02px;
+div.album_art {
   height:258.02px;
+  width:258.02px;
   left:46px;
-  padding-top: 41px;
+  margin-top: 41px;
   z-index:1;
   position:absolute;
+  background-size: cover;
+  background-position: center;
 }
 
 img.vinyl {
@@ -44,7 +46,7 @@ img.vinyl {
   padding-top: 50px;
 }
 
-.title-artist {
+.title_artist {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +68,7 @@ img.vinyl {
   padding-top: 5px;
 }
 
-.seek-items {
+.seek_items {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,7 +84,7 @@ img.vinyl {
   gap:309px;
 }
 
-.current-time, .total-duration{
+.current_time, .total_duration{
   width:38px;
   height:16px;
   font-size: 16px;
@@ -107,6 +109,7 @@ img.vinyl {
 
 input.seek_slider {
   -webkit-appearance:none;
+  appearance: none;
   outline:none;
 }
 
@@ -129,6 +132,7 @@ input.seek_slider {
   gap: 65.015px;
   color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   background-image: linear-gradient(180deg, #96385A 0%, #66255D 100%);
 }
 
