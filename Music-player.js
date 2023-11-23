@@ -139,5 +139,4 @@ function resetValues() {
         current_time.textContent = currentMinutes + ":" + currentSeconds;
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
         }
-       }
-       
+       };
