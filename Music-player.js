@@ -82,68 +82,68 @@ function resetValues() {
  }  
 
 function playPauseTrack() {
-    if (!isPlaying) playTrack();
-    else pauseTrack();
-  }
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+}
 
 function playTrack() {
-    current_track.play();
-    isPlaying = true;
-    playPause.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
-    }
+  current_track.play();
+  isPlaying = true;
+  playPause.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
+}
     
 function pauseTrack() {
-    current_track.pause();
-    isPlaying = false;
-    playPause.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
-    }
+  current_track.pause();
+  isPlaying = false;
+  playPause.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+}
   
 
 function nextTrack() {
-      if (track_index < track_list.length -1)
-      track_index += 1;
-      else track_index = 0;
+  if (track_index < track_list.length -1)
+  track_index += 1;
+  else track_index = 0;
     
-    loadTrack(track_index);
-    playTrack();
-    }
+  loadTrack(track_index);
+  playTrack();
+}
     
 function prevTrack() {
-      if (track_index > 0)
-      track_index -= 1;
-      else track_index = track_list.length -1;
+  if (track_index > 0)
+  track_index -= 1;
+  else track_index = track_list.length -1;
     
-    loadTrack(track_index);
-    playTrack();
-    }
+  loadTrack(track_index);
+  playTrack();
+}
   
 function seekTo() {
-      let seekto = current_track.duration * (seek_slider.value / 100);
-      current_track.currentTime = seekto;
-     }
+  let seekto = current_track.duration * (seek_slider.value / 100);
+  current_track.currentTime = seekto;
+}
 
-     function seekUpdate() {
-      let seekPosition = 0;
+function seekUpdate() {
+  let seekPosition = 0;
     
-      if (!isNaN(current_track.duration)) {
-        seekPosition = current_track.currentTime * (100 / current_track.duration);
-        seek_slider.value = seekPosition;
-        current_time.textContent = formatTime(current_track.currentTime);
-        total_duration.textContent = formatTime(current_track.duration - current_track.currentTime);
-      }
-    };
+  if (!isNaN(current_track.duration)) {
+    seekPosition = current_track.currentTime * (100 / current_track.duration);
+    seek_slider.value = seekPosition;
+    current_time.textContent = formatTime(current_track.currentTime);
+    total_duration.textContent = formatTime(current_track.duration - current_track.currentTime);
+  }
+};
     
-    function formatTime(time) {
-      let minutes = Math.floor(time / 60);
-      let seconds = Math.floor(time % 60);
-      if (minutes < 10) {
-        minutes = "0" + minutes;
-      }
-      if (seconds < 10) {
-        seconds = "0" + seconds;
-      }
-      return minutes + ":" + seconds;
-    }
+function formatTime(time) {
+  let minutes = Math.floor(time / 60);
+  let seconds = Math.floor(time % 60);
+  if (minutes < 10) {
+     minutes = "0" + minutes;
+  }
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  return minutes + ":" + seconds;
+}
   
       // function seekUpdate() {
       // let seekPosition = 0;
